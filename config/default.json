@@ -1,0 +1,5 @@
+{
+    "db":"mongodb+srv://rahma:0000@atlascluster.zbt7fm9.mongodb.net/Auth-rahma?retryWrites=true&w=majority",
+    "secret":"shuuu"
+   
+}

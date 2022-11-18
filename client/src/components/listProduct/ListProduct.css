@@ -1,0 +1,16 @@
+
+
+.imgListProduct{
+    width: 100%;
+    height: 500px!important;
+}
+
+.listProduct1{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.para1{
+    font-family: 'Niconne', cursive;
+    font-size:2em;
+}

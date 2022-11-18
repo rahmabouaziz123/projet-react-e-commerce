@@ -1,0 +1,22 @@
+
+
+.productCard1{
+    padding: 15% 10%;
+   
+   
+}
+
+.productCard2{
+   margin-left: 2%!important;
+   
+}
+
+.btnCard{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cercle{
+    margin-left: 10px;
+    margin-top: 10px;
+}
