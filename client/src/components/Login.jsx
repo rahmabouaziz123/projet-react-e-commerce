@@ -1,6 +1,4 @@
-
-
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -16,40 +14,33 @@ import {
   Input,
   VStack,
 } from "@chakra-ui/react";
-import { userLogin } from '../redux/actions/actionUser';
-
+import { userLogin } from "../redux/actions/actionUser";
 
 export const Login = () => {
+  const { user, loading, isAuth } = useSelector((state) => state.userReducer);
+  console.log(loading);
+  console.log(user);
 
-    const { user, loading, isAuth } = useSelector((state) => state.userReducer);
-    console.log(loading);
-    console.log(user);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(userLogin({ email, password }));
+  };
 
-    const dispatch = useDispatch();
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      dispatch(userLogin({ email, password }));
-    };
-    
   return (
-
-
     <div>
-
-{loading ? (
+      {loading ? (
         <h1>Loading ...</h1>
       ) : localStorage.getItem("token") ? (
-      
         <Navigate to="/privateRoute" />
+      ) : (
         // <Navigate to="/" />
 
-      ) : (<div>
-
-      
-        {/* <Form >
+        <div>
+          {/* <Form >
        <div className='loginform'>
        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -70,13 +61,11 @@ export const Login = () => {
        </div>
       </Form> */}
 
-<div>
+          <div>
             <Flex bg="gray.100" align="center" justify="center" h="88vh">
-              <Box bg="white" p={10}  w="100vh"  >
+              <Box bg="white" p={10} w="100vh">
                 <form>
                   <VStack spacing={4} align="flex-start">
-                   
-
                     <FormControl>
                       <FormLabel htmlFor="email">Email </FormLabel>
                       <Input
@@ -85,8 +74,8 @@ export const Login = () => {
                         type="email"
                         variant="filled"
                         placeholder="email"
-                      value={email}
-                       onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </FormControl>
 
@@ -103,10 +92,6 @@ export const Login = () => {
                       />
                     </FormControl>
 
-                  
-
-                   
-
                     <Checkbox
                       id="rememberMe"
                       name="rememberMe"
@@ -120,22 +105,17 @@ export const Login = () => {
                       colorScheme="purple"
                       width="30%"
                       textAlign="center"
-                     className='btnlogin1'
-                    
+                      className="btnlogin1"
                     >
-                     submit
+                      submit
                     </Button>
                   </VStack>
-                 
                 </form>
               </Box>
             </Flex>
           </div>
-
-      </div>
+        </div>
       )}
-
-
     </div>
-  )
-}
+  );
+};

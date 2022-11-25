@@ -1,7 +1,20 @@
-.App {
+/* .App {
   text-align: center;
 }
+.img-container {
+  overflow: hidden;
+}
 
+.img-container img {
+  width: 450px;
+  transition: transform 0.3s;
+}
+
+.img-container img:hover {
+  transform: scale(5);
+  width: 400;
+  offset:5, 10;
+} */
 
 .App-logo {
   height: 40vmin;
@@ -77,4 +90,8 @@
 
   .divProfile{
     
+  }
+
+  .nav5{
+    /* position: fixed!important; */
   }

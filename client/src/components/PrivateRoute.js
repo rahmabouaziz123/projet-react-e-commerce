@@ -9,5 +9,5 @@ export const PrivateRoute = () => {
     // console.log(loading);
     // console.log(user);
 
-    return user.userRole=="user" ? <Navigate to="/listProduct" />: <Navigate to="/addProduct" />;
+    return user.userRole=="user" ? <Navigate to="/listProduct" />: <Navigate to="/listAdmin" />;
 }

@@ -5,6 +5,7 @@ const multer = require("multer");
 const router = express.Router();
 
 const storage = multer.diskStorage({
+  ///destination qui se trouve les images a enregistrer
   destination(req, file, cb) {
     cb(null, "client/public/images");
   },
@@ -34,7 +35,7 @@ const upload = multer({
     checkFileType(file, cb);
   },
 });
-
+//////////////////image dans la base de donne
 router.post("/up", upload.single("image"), (req, res) => {
   res.send(`/images/${req.file.filename}`);
 });

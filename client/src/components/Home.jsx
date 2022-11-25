@@ -1,13 +1,11 @@
-
-
-import React from 'react'
+import React from "react";
 import "../components/listProduct/ListProduct.css";
 import Carousel from "react-bootstrap/Carousel";
 
 export const Home = () => {
   return (
     <div>
-         <Carousel>
+      <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100  imgListProduct "
@@ -49,9 +47,11 @@ export const Home = () => {
         {" "}
         Vente en ligne vêtements pour homme, femme et enfant en Tunisie à bas
         prix, chemise & tunique, pantalon, robe, veste & manteau, chaussure,
-        pull...
+        pull Lorsque des clients effectuent un achat sur votre e-boutique, ils
+        se jettent à l’eau. Ils ne peuvent ni voir l’article, ni le tenir dans
+        les mains, ni l’essayer. Pour rendre ce processus moins flou,  Vente en ligne vêtements
+      
       </div>
     </div>
-   
-  )
-}
+  );
+};

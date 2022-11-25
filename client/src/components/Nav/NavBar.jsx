@@ -8,6 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserProfile } from '../../redux/actions/actionUser.js';
 import { Profile } from '../Profile.jsx';
 
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
+
+// import "./ListAdmin.css";
+// import "../Admin/ListAdmin.css"
+
 
 
 export const NavBar = () => {
@@ -22,7 +28,8 @@ export const NavBar = () => {
   return (
     <div>
    <Layout>
-      <Navbar isBordered variant="sticky">
+    {/* 555  variant="sticky" */}
+      <Navbar isBordered  className='nav5'>
         <Navbar.Brand>
           <AcmeLogo />
           <Text b color="inherit" hideIn="xs">
@@ -138,6 +145,8 @@ export const NavBar = () => {
            
 
           </Navbar.Item>
+
+          <AiOutlineShoppingCart/>
         </Navbar.Content>
       </Navbar>
     </Layout>

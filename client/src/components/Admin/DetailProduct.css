@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2? family= Averia+Serif+Libre & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Roboto:wght@900&display=swap');
+.ss{
+    color: blueviolet;
+}
+
+
+/* #imgzoom{
+    margin-top: 50px;
+} */
+
+
+
+
+/* kkkk */
+.geeks {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-top: 20px;
+    
+}
+
+ .geeks #imgzoom  {
+    /* width: 50%; */
+    transition: 0.5s all ease-in-out;
+}
+
+.geeks:hover #imgzoom  {
+    transform: scale(1.1);
+    
+} 
+
+
+.textnameProd{
+    color:  #ff471a;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.price{
+    text-align: center;
+    
+}
+
+.span1{
+    color: #ff471a;
+    font-family: 'Roboto', sans-serif;
+}
+
+.description{
+    color: #ff471a;
+    /* font-family:'Averia Serif Libre, cursive '; */
+    font-style: oblique;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+.textdescription{
+    font-family:'Averia Serif Libre, cursive ';
+    font-style: oblique;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-justify: inter-word;
+
+}
+
+.like{
+    color:crimson;
+}
+.dislike{
+    
+}
+
+#cardcenter{
+    margin-left:20%;
+    margin-top: 30px;
+}

@@ -1,5 +1,5 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Roboto:wght@900&display=swap');
 .imgListProduct{
     width: 100%;
     height: 500px!important;
@@ -13,4 +13,6 @@
 .para1{
     font-family: 'Niconne', cursive;
     font-size:2em;
+    /* font-family:'Averia Serif Libre, cursive '; */
+  
 }
