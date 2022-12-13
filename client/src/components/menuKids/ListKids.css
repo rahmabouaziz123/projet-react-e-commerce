@@ -1,0 +1,16 @@
+
+
+.ListEnfants1{
+    display: flex!important;
+    flex-wrap: wrap!important;
+    margin-left: 100px;
+  
+    /* margin-top: 50px; */
+    
+}
+
+.enfant{
+    font-size:40px;
+    text-align: center;
+    color:   #330000;
+}

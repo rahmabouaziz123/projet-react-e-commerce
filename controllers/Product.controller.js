@@ -2,7 +2,7 @@ const product = require("../model/product");
 
 //add product
 exports.addProduct = async (req, res) => {
-  const { nameProd, price, category,image, description,rating, quantity } =
+  const { nameProd, price, category,image, description,rating, quantity,sold } =
     req.body;
   try {
     const newProduct = new product({
@@ -12,6 +12,7 @@ exports.addProduct = async (req, res) => {
       description,
       image,
       rating,
+      sold,
       quantity
     });
     await newProduct.save();
@@ -88,3 +89,31 @@ exports.getWomenProducts = async (req, res) => {
     res.status(501).json({ msg: error.message });
   }
 };
+
+//get product men
+exports.getMenProducts = async (req, res) => {
+  try {
+    const menProducts = await product.find({category:"homme"});
+    menProducts
+      ? res.status(201).json(menProducts)
+      : res.status(401).json({ msg: "get Men Products error" });
+  } catch (error) {
+    res.status(501).json({ msg: error.message });
+  }
+};
+
+//get product Kids
+exports.getkidsProducts = async (req, res) => {
+  try {
+    const kidsProducts = await product.find({category:"enfant"});
+    kidsProducts
+      ? res.status(201).json(kidsProducts)
+      : res.status(401).json({ msg: "get kids Products error" });
+  } catch (error) {
+    res.status(501).json({ msg: error.message });
+  }
+};
+
+
+
+

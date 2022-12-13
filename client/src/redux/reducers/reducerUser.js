@@ -1,6 +1,6 @@
 
 
-import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS } from "../actionTypes/actionTypeUser";
+import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
 
 
 const init = {
@@ -55,6 +55,8 @@ const init = {
             return{
                 ...state,loading:false,error:null,user:payload
             }
+            case USER_LOGOUT:
+              return {};
   
       default:
         return state;

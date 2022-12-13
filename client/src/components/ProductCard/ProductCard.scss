@@ -20,21 +20,25 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // min-height: 100vh;
 //   background-color: #C65D7B!important;
 // background-color:   #ffe6f0!important;
 // background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZqqxEhJklBR1jBJJhw_6mqesmJxxk7clGTQ&usqp=CAU")!important;
-background: #EDF2F9!important;
 
-  font-family: 'Raleway', sans-serif;
+background: #EDF2F9!important;
+// background: #444422!important;
+
+
+  // font-family: 'Raleway', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 .box {
   position: relative;
   width: 300px;
-  height: 300px;
+  height: 400px;
   background-color: #F6E7D8;
   border-radius: 50%;
   overflow: hidden;

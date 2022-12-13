@@ -1,0 +1,54 @@
+
+.plm{
+    display: flex;
+    justify-content: center;
+    /* border-style: groove!important;
+    border-color: coral !important; */
+   
+
+}
+.container5 {
+    width: 21cm;
+    min-height: 29.7cm;
+    margin-top: 30px;
+    /* border: 2px solid #0C134A ; */
+    /* border-radius: 5px; */
+    /* border-width: 5px; */
+   
+    
+
+  }
+  
+  .invoice {
+    background: #fff;
+    width: 100%;
+    padding: 50px;
+
+  }
+  
+  .logo {
+    width: 2.5cm;
+  }
+  
+  .document-type {
+    text-align: right;
+    color: #444;
+  }
+  
+  .conditions {
+    font-size: 0.7em;
+    color: #666;
+  }
+  
+  .bottom-page {
+    font-size: 0.7em;
+  }
+
+
+  .som1{
+    display: none;
+  }
+  .imgmangfac{
+    width: 100px;
+    height: 70px;
+  }

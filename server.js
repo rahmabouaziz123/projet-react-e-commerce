@@ -12,9 +12,19 @@ app.use("/user",user)
 const product =require ("./routes/product")
 app.use("/product",product)
 
+
 //router upload
 const upload = require("./routes/upload");
 app.use("/upload", upload);
+
+//router cart
+const cart = require("./routes/cart")
+app.use("/api", cart);
+
+//router facture
+// const facture =require("./routes/facture")
+// app.use("/facture",facture)
+
 
 
 const PORT=process.env.PORT||5000;

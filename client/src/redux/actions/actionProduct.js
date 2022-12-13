@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADDPRODUCT, ADDPRODUCT_FAIL, ADDPRODUCT_SUCCESS, DELETEPRODUCT, DETAILPRODUCT, GETPRODUCTS, GET_WOMEN_PRODUCT, UPDATEPRODUCT } from "../actionTypes/actionTypeProduct";
+import { ADDPRODUCT, ADDPRODUCT_FAIL, ADDPRODUCT_SUCCESS, DELETEPRODUCT, DETAILPRODUCT, GETPRODUCTS, GET_KIDS_PRODUCT, GET_MEN_PRODUCT, GET_WOMEN_PRODUCT, UPDATEPRODUCT } from "../actionTypes/actionTypeProduct";
 
 
 //get all products
@@ -95,5 +95,36 @@ export const getWomenProd = () => async(dispatch) => {
     );
   } catch (error) {
     alert("get women products error")
+  }
+};
+
+
+//get men products
+export const getMenProd = () => async(dispatch) => {
+  try {
+    const res = await axios.get("/product/getMenProducts");
+    dispatch (
+      {
+      type : GET_MEN_PRODUCT,
+      payload : res.data
+      }
+    );
+  } catch (error) {
+    alert("get Men products error")
+  }
+};
+
+//get kids products
+export const getkidsProd = () => async(dispatch) => {
+  try {
+    const res = await axios.get("/product/getkidsProducts");
+    dispatch (
+      {
+      type : GET_KIDS_PRODUCT,
+      payload : res.data
+      }
+    );
+  } catch (error) {
+    alert("get Men products error")
   }
 };

@@ -17,6 +17,9 @@ export const Profile = () => {
         <h1>Loading...</h1>
       ) : (
         <div>{user && <h1>{`Hello ${user.fullName}`}</h1>}</div>
+
+        
+        
       )}
     </div>
   );

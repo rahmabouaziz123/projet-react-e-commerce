@@ -1,4 +1,4 @@
-import { ADDPRODUCT, ADDPRODUCT_FAIL, ADDPRODUCT_SUCCESS, DELETEPRODUCT, DETAILPRODUCT, GETPRODUCTS, GET_WOMEN_PRODUCT, UPDATEPRODUCT } from "../actionTypes/actionTypeProduct";
+import { ADDPRODUCT, ADDPRODUCT_FAIL, ADDPRODUCT_SUCCESS, DELETEPRODUCT, DETAILPRODUCT, GETPRODUCTS, GET_KIDS_PRODUCT, GET_MEN_PRODUCT, GET_WOMEN_PRODUCT, UPDATEPRODUCT } from "../actionTypes/actionTypeProduct";
 
 const init = {
   products: null,
@@ -37,6 +37,8 @@ case ADDPRODUCT_FAIL:
 
     case GETPRODUCTS:
       case GET_WOMEN_PRODUCT:
+        case GET_MEN_PRODUCT:
+          case GET_KIDS_PRODUCT:
       return {
         ...state,
         products: payload,

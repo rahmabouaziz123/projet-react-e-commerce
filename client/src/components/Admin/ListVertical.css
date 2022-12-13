@@ -6,9 +6,10 @@
     inset: 0 75% 0 0;
     /* background-color: hsla(0,40%,98%,0.092); */
     background-color: blueviolet;
+    /* background-color: #DADACE; */
     /* width: 336px; */
     width: 320px;
-    /* margin-top: 70px; */
+    margin-top: 80px;
     opacity: 0.5;
     border-radius: 0 90px  90px 0;
 }
@@ -20,7 +21,9 @@
     align-items: center;
     inset: 0 95% 0 0;
     /* background-color: hsla(0,2%,10%,0.558); */
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+    background-color: #DADACE; 
+    margin-top: 80px;
 }
 
 nav .ul-item {
@@ -40,6 +43,7 @@ nav .ul-item.oicon li::after {
     width: 1%;
     height: 4%;
     background-color: #fff;
+    
     right: 0;
 }
 
@@ -58,7 +62,9 @@ nav .ul-item li:hover {
 
 nav .ul-item li .icon {
     /* color: rgb(0, 255, 145); */
-    color: 	 #EDF2F9;
+    /* color: 	 #EDF2F9; */
+    color: black;
+
     margin-inline: 1rem;
     font-size: 30px;
 }
@@ -67,6 +73,8 @@ nav .ul-item li a {
     text-transform: uppercase;
     text-decoration: none;
     color: #fff;
+
+   
     border-left: 1px solid white;
     padding-left: 2rem;
 }
@@ -106,5 +114,6 @@ nav .ul-item li:hover {
 
     nav .ul-item li .icon {
         font-size: clamp(1rem,2vw + 1rem, 4rem);
+        
     }
 }

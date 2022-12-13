@@ -4,8 +4,13 @@ import React from 'react'
 import  { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWomenProd } from "../../../redux/actions/actionProduct";
+import { ListVertical } from '../ListVertical';
+
 import { CardWomen } from './CardWomen';
-import "./ListWomen.scss";
+
+import"./ListWomen.css"
+
+
 
 
 export const ListWomen = () => {
@@ -19,11 +24,16 @@ export const ListWomen = () => {
     }, [dispatch]);
   
     return (
-      <div>
+      <div  >
+
+       <div>   <ListVertical/></div>
+       
+        <div className='ListWomen1'>
         {products &&
                 React.Children.toArray(
                   products.map((el) => <CardWomen woman={el} />)
                 )}
+        </div>
       </div>
     );
 

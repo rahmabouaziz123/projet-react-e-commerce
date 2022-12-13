@@ -199,7 +199,7 @@ export const SignUp = () => {
                     </Button>
 
                     <Link to="/login">
-                     <Button  type="submit" colorScheme="purple"  width="90%">
+                     <Button  type="submit" colorScheme="purple"  width="90%" className="btnloginx">
                         Login 
                       </Button>
                     </Link>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./AddProduct.css";
 import { Modal, useModal, Button, Text } from "@nextui-org/react";
@@ -19,10 +19,12 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { Radio, RadioGroup } from "@chakra-ui/react";
+
+import StarRating from "./ratings/StarRating";
 
 //////////////////////////////////////
 
@@ -37,8 +39,34 @@ export const AddProduct = () => {
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
+  const [sold, setSold] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [value, setValue] = React.useState("");
+  const [prixf, setPrixf] = useState(0);
+  // const [total, setTotal] = useState();
+
   ////////////////////////////////exepmle
+
+  //store pour sold
+  // const { products } = useSelector((state) => state.productReducer);
+
+  // const prixFinal = (sold1, price1) => {
+  //   const sold = parseFloat(sold1);
+  //   const price = parseFloat(price1);
+  //   let res = 0;
+  //   res = sold * price;
+  //   return res;
+  // };
+
+  //   useEffect(() => {
+  //     let total = 0;
+
+  //     products.forEach(el => {
+  //         total = parseFloat(prixFinal(el.price, el.sold));
+  //     });
+
+  //     setTotal(total)
+  // }, [total, products]);
 
   ////////////Configuration images
   const fileSelectedHandler = async (e) => {
@@ -81,6 +109,7 @@ export const AddProduct = () => {
       image,
       description,
       rating,
+      sold,
       quantity,
     };
     dispatch(createProduct(newProduct));
@@ -89,11 +118,10 @@ export const AddProduct = () => {
     setCategory("");
     setImage("");
     setDescription("");
+    setSold("");
     setRating("");
     setQuantity("");
   };
-
-  const [value, setValue] = React.useState("1");
 
   /////////////////////////////////////////
 
@@ -119,7 +147,7 @@ export const AddProduct = () => {
           <Modal.Body>
             <div>
               <Flex bg="gray.100" h="110vh" align="center" justify="center">
-                <Box bg="white" p={2} w="80vh" className="box1" h="100vh">
+                <Box bg="white" p={2} w="80vh" className="box1" h="110vh">
                   {/*  onSubmit={handleSubmit} */}
                   <form onSubmit={handleSubmit}>
                     <VStack spacing={4} align="flex-start">
@@ -148,37 +176,47 @@ export const AddProduct = () => {
                           onChange={(e) => setPrice(e.target.value)}
                         />
                       </FormControl>
-                      <FormLabel htmlFor="price">Category </FormLabel>
 
-                      {/* <CheckboxGroup colorScheme="green">
-                        <Stack spacing={[1, 5]} direction={["column", "row"]}>
-                          <Checkbox
-                            name="homme"
-                            onChange={(e) => setCategory(e.currentTarget.name)}
-                          >
-                            homme
-                          </Checkbox>
-                          <Checkbox
-                           name="femme"
-                            onChange ={(e) => setCategory(e.currentTarget.name)}
-                          >
-                            femme
-                          </Checkbox>
-                          <Checkbox
-                            name="enfant"
-                            onChange={(e) => setCategory(e.currentTarget.name)}
-                          >
-                            enfant
-                          </Checkbox>
-                    
-                        </Stack>
-                      </CheckboxGroup> */}
+                      <FormControl>
+                        <FormLabel htmlFor="sold">Sold </FormLabel>
+                        <Input
+                          id="sold"
+                          name="sold"
+                          type="number"
+                          variant="filled"
+                          placeholder="Sold"
+                          value={sold}
+                          onChange={(e) => setSold(e.target.value)}
+                        />
+                      </FormControl>
+
+                      <FormControl>
+                        <FormLabel htmlFor="price final">
+                          Price Final{" "}
+                        </FormLabel>
+                        <Input
+                          id="prixf"
+                          name="prixf"
+                          type="number"
+                          variant="filled"
+                          // placeholder="***"
+                          isDisabled
+                          prixf={price - (price * sold) / 100}
+                          // value={ price-(price*sold)/100 }
+                          value={prixf}
+
+                          // onChange={(e) => setTotal(e.target.value)}
+                        />
+                      </FormControl>
+
+                      <FormLabel htmlFor="Category">Category </FormLabel>
 
                       <RadioGroup onChange={setValue} value={value}>
                         <Stack direction="row">
                           <Radio
                             value="1"
                             name="femme"
+                            defaultChecked
                             onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Femme
@@ -233,15 +271,10 @@ export const AddProduct = () => {
 
                       <FormControl>
                         <FormLabel htmlFor="rating">Rating</FormLabel>
-                        <Input
-                          id="rating"
-                          name="rating"
-                          type="text"
-                          variant="filled"
-                          placeholder="rating"
-                          value={rating}
-                          onChange={(e) => setRating(e.target.value)}
-                        />
+
+                        <div>
+                          <StarRating rating={rating} setRating={setRating} />
+                        </div>
                       </FormControl>
 
                       <FormControl>
@@ -258,16 +291,6 @@ export const AddProduct = () => {
                       </FormControl>
 
                       <div className="btnAddProduct">
-                        {/* <Button
-                          type="submit"
-                          colorScheme="purple"
-                          
-                          width="60%"
-                          className="btnsubmit1"
-                        >
-                          ADD
-                        </Button> */}
-
                         <Button
                           className="btnsubmit1"
                           auto
@@ -276,17 +299,6 @@ export const AddProduct = () => {
                         >
                           Add
                         </Button>
-
-                        {/* <Link to="/listAdmin">
-                          <Button
-                            colorScheme="purple"
-                            // width="full"
-                            width="60%"
-                            className="btnsubmit1"
-                          >
-                            close
-                          </Button>
-                        </Link> */}
                       </div>
                     </VStack>
                   </form>
@@ -295,10 +307,6 @@ export const AddProduct = () => {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            {/* <Button auto  type="submit" onClick={() => setVisible(false)}  >
-              Agree
-            </Button> */}
-
             <Button auto flat color="error" onClick={() => setVisible(false)}>
               Close
             </Button>

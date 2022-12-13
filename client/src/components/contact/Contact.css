@@ -1,0 +1,54 @@
+
+
+.divContact{
+ display: flex;
+flex-direction: column;
+align-items: center;
+border: 2px solid  #e0e0d1;
+border-radius: 25px;
+width:450px;
+background: linear-gradient(blue, 10%, pink);
+/* padding: 60px 0; */
+margin-top: -100px;
+
+
+}
+
+.textarea1{
+    
+}
+
+.totalContact{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    /* height:630px; */
+    padding: 60px 2px;
+    height:500px;
+   
+ 
+}
+
+#email1{
+    background:  #ebebe0;
+    width: 400px;
+ 
+}
+#message{
+    background:  #ebebe0;
+    width: 400px;
+    height: 100px;
+ 
+}
+.btnEmail{
+    margin-top: 60px;
+ 
+}
+
+#contectNous{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+

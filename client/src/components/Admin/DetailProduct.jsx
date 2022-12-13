@@ -16,10 +16,11 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getOneProduct } from "../../redux/actions/actionProduct";
 
 import "./DetailProduct.css";
+import { ListVertical } from "./ListVertical";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,7 +72,10 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Card className={classes.root}  id="cardcenter">
+    
+    <div>
+      <ListVertical/>
+      <Card className={classes.root}  id="cardcenter">
       <CardHeader
         avatar={
           <Avatar
@@ -83,15 +87,32 @@ export default function RecipeReviewCard() {
             {/* {product1&&product1.category} */}
           </Avatar>
         }
+
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <Link to={"/listAdmin"}>
+            <MoreVertIcon />  
+             </Link>
+            
+          
           </IconButton>
         }
+
+
+       
+
         className="textnameProd"
         title={product1&&product1.nameProd}
         // subheader="September 14, 2016"
       />
+
+      <div> <span>
+              {product1.rating == "1" ? "⭐" : null}
+              {product1.rating == "2" ? "⭐⭐" : null}
+              {product1.rating == "3" ? "⭐⭐⭐" : null}
+              {product1.rating == "4" ? "⭐⭐⭐⭐" : null}
+              {product1.rating == "5" ? "⭐⭐⭐⭐⭐" : null}
+            </span></div>
       <div className="geeks">
         <CardMedia
           // id="imgzoom"
@@ -113,8 +134,16 @@ export default function RecipeReviewCard() {
           component="p"
           className="price"
         >
-          <span className="span1"> {product1&&product1.price}</span>{" "}
+          <span className="span1"> <strike> {product1&&product1.price}</strike></span>{" "}
           <span className="span1"> DT</span>
+           <p>
+           (Up to {product1.sold} % Of)
+           </p>
+           <p>
+           {product1.price - (product1.price * product1.sold) / 100}
+           <span> DT</span>
+           </p>
+
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -155,8 +184,18 @@ export default function RecipeReviewCard() {
           <Typography paragraph className="textdescription">
             {product1&&product1.description}
           </Typography>
+
+          <Typography paragraph className="description">
+            Quanntite:
+          </Typography>
+          <Typography paragraph className="description">
+           {product1.quantity}
+          </Typography>
+       
         </CardContent>
       </Collapse>
     </Card>
+    
+    </div>
   );
 }

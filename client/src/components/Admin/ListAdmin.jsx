@@ -53,7 +53,10 @@ export const ListAdmin = () => {
             <Table.Column>Category</Table.Column>
             <Table.Column>NAME</Table.Column>
             <Table.Column>Price</Table.Column>
+            <Table.Column>Sold</Table.Column>
+            <Table.Column>Price Final </Table.Column>
             <Table.Column>Quantity</Table.Column>
+            <Table.Column>rating</Table.Column>
             <Table.Column>Actions</Table.Column>
           </Table.Header>
           <Table.Body>
@@ -67,8 +70,21 @@ export const ListAdmin = () => {
                   </Table.Cell>
                   <Table.Cell>{el.category}</Table.Cell>
                   <Table.Cell>{el.nameProd}</Table.Cell>
-                  <Table.Cell>{el.price}</Table.Cell>
+                  <Table.Cell>{el.price}
+                  <span> DT</span>
+                  </Table.Cell>
+                  <Table.Cell><span> {el.sold}</span><span>%</span></Table.Cell>
+                  <Table.Cell> {el.price-(el.price*el.sold)/100}
+                  <span> DT</span>
+                  </Table.Cell>
                   <Table.Cell>{el.quantity}</Table.Cell>
+                  <Table.Cell>{el.rating=="1"?"⭐":null}
+                  {el.rating=="2"?"⭐⭐":null}
+                  {el.rating=="3"?"⭐⭐⭐":null}
+                  {el.rating=="4"?"⭐⭐⭐⭐":null}
+                  {el.rating=="5"?"⭐⭐⭐⭐⭐":null}
+
+                  </Table.Cell>
                   <Table.Cell>
                     <div className="actionLogo">
                       

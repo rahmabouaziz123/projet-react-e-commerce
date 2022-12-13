@@ -4,11 +4,13 @@
     width: 80px;
     height: 80px;
     border-radius: 100px;
-
+  
 }
  .tab1{
-   margin-top: 50px;
+   margin-top: 20px;
    /* background-color: #b6997c; */
+   width: 900px;
+   margin-left: 22%;
 
  }
 
@@ -20,7 +22,8 @@
 
  .btnAddProduct1{
   margin-top: 30px;
-  margin-left: 300px;
+  /* margin-left: 700px; */
+  margin-left: 50%;
  }
 
 

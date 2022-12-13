@@ -9,7 +9,8 @@ const productSchema = new Schema({
     category : String,
     image : String,
     description : String,
-    rating:String,
+    rating: String,
+    sold:Number,
     quantity:String
 });
 

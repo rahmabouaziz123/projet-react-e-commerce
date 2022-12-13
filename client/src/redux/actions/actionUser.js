@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS } from "../actionTypes/actionTypeUser";
+import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
 
 
 
@@ -68,3 +68,10 @@ export const userSignUp = (newUser) => async (dispatch) => {
         })
     }
 }
+
+
+///////////logout
+export const logout = () => async (dispatch) => {
+  localStorage.removeItem("token");
+  dispatch({ type: USER_LOGOUT });
+};

@@ -21,3 +21,9 @@ export const DETAILPRODUCT = "DETAILPRODUCT";
 
 //get women product
 export const GET_WOMEN_PRODUCT = "GET_WOMEN_PRODUCT";
+
+// get men product
+export const GET_MEN_PRODUCT = "GET_MEN_PRODUCT";
+
+//get kids product
+export const GET_KIDS_PRODUCT = "GET_KIDS_PRODUCTS";

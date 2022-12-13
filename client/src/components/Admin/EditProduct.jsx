@@ -3,9 +3,7 @@ import React, { useEffect } from "react";
 import "./EditProduct.css";
 import { Modal, useModal, Button, Text } from "@nextui-org/react";
 import { CiEdit } from "react-icons/ci";
-
 /////////////////////////////////////////
-
 import axios from "axios";
 import {
   Box,
@@ -25,6 +23,7 @@ import {
   getAllProducts,
 } from "../../redux/actions/actionProduct";
 import { Radio, RadioGroup } from "@chakra-ui/react";
+import StarRating from "./ratings/StarRating";
 
 //////////////////////////////////////
 
@@ -41,7 +40,17 @@ export const EditProduct = ({ produit }) => {
   const [description, setDescription] = useState(produit.description);
   const [rating, setRating] = useState(produit.rating);
   const [quantity, setQuantity] = useState(produit.quantity);
+  const [sold, setSold] = useState(produit.sold);
   const [value, setValue] = useState("1");
+  const [value2, setValue2] = useState("2");
+  const [value3, setValue3] = useState("3");
+  const [prixf, setPrixf] = useState(produit.price-(produit.price*produit.sold)/100)
+
+
+  //  useEffect(() => {
+  //   setPrixf(produit.price-(produit.price*produit.sold)/100)
+     
+  //  }, []);
 
   ////////////////////////////////exepmle
 
@@ -57,7 +66,6 @@ export const EditProduct = ({ produit }) => {
           "Content-Type": "multipart/form-data",
         },
       };
-
       const { data } = await axios.post("/upload/up", fd, config);
       console.log(data);
 
@@ -86,10 +94,10 @@ export const EditProduct = ({ produit }) => {
       price,
       category,
       image,
-
       description,
       rating,
       quantity,
+      sold,
     };
     dispatch(editeProduct(editProduct)) && dispatch(getAllProducts());
     // setNameProd("");
@@ -108,10 +116,9 @@ export const EditProduct = ({ produit }) => {
     description,
     rating,
     quantity,
+    sold,
   ]);
-
   /////////////////////////////////////////
-
   return (
     <div>
       <div>
@@ -119,7 +126,6 @@ export const EditProduct = ({ produit }) => {
         <Button auto shadow color="secondary" onClick={() => setVisible(true)}>
           <CiEdit />
         </Button>
-
         <Modal
           scroll
           width="600px"
@@ -135,7 +141,7 @@ export const EditProduct = ({ produit }) => {
           <Modal.Body>
             <div>
               <Flex bg="gray.100" h="110vh" align="center" justify="center">
-                <Box bg="white" p={2} w="80vh" className="box1" h="100vh">
+                <Box bg="white" p={2} w="80vh" className="box1" h="110vh">
                   {/*  onSubmit={handleSubmit} */}
                   <form onSubmit={handleSubmit}>
                     <VStack spacing={4} align="flex-start">
@@ -151,7 +157,6 @@ export const EditProduct = ({ produit }) => {
                           onChange={(e) => setNameProd(e.target.value)}
                         />
                       </FormControl>
-
                       <FormControl>
                         <FormLabel htmlFor="price">price </FormLabel>
                         <Input
@@ -164,6 +169,43 @@ export const EditProduct = ({ produit }) => {
                           onChange={(e) => setPrice(e.target.value)}
                         />
                       </FormControl>
+
+                      <FormControl>
+                      <FormLabel htmlFor="sold">Sold </FormLabel>
+                        <Input
+                          id="sold"
+                          name="sold"
+                          type="number"
+                          variant="filled"
+                          placeholder="price"
+                          value={sold}
+                          onChange={(e) => setSold(e.target.value)}
+                        />
+                      </FormControl>
+                          
+                         
+                      <FormControl>
+                        <FormLabel htmlFor="price final">Price Final </FormLabel>
+                        <Input
+                          id="prixf"
+                          name="prixf"
+                          type="number"
+                          variant="filled"
+                          // placeholder="***"
+                          isDisabled
+                          // prixf= { price-(price*sold)/100}
+                          // value={ price-(price*sold)/100 }
+                          value={prixf}
+                          // onChange={() => setPrixf(produit.price-(produit.price*produit.sold)/100)}
+                           
+
+                  
+                        
+
+                         
+                        />
+                      </FormControl>
+
                       <FormLabel htmlFor="price">Category </FormLabel>
 
                       {/* <CheckboxGroup colorScheme="green">
@@ -189,12 +231,17 @@ export const EditProduct = ({ produit }) => {
                         </Stack>
                       </CheckboxGroup> */}
 
+                      {/* <RadioGroup onChange={setValue} value={value} > */}
+                      {/* onChange={setValue1} value1={value1} */}
+
+                          
+
                       <RadioGroup onChange={setValue} value={value}>
                         <Stack direction="row">
                           <Radio
                             value="1"
                             name="femme"
-
+                            checked={value == "1" ? true : false}
                             onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Femme
@@ -203,14 +250,21 @@ export const EditProduct = ({ produit }) => {
                           <Radio
                             value="2"
                             name="homme"
+                            // checked={value == "2" ? true : false}
+                           
+
+                           
+                  
                             onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Homme
                           </Radio>
                           <Radio
                             name="enfant"
-                            onChange={(e) => setCategory(e.currentTarget.name)}
                             value="3"
+                            checked={value== "3" ? true : false}
+                            
+                            onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Enfant
                           </Radio>
@@ -246,7 +300,7 @@ export const EditProduct = ({ produit }) => {
 
                       <FormControl>
                         <FormLabel htmlFor="rating">Rating</FormLabel>
-                        <Input
+                        {/* <Input
                           id="rating"
                           name="rating"
                           type="text"
@@ -254,7 +308,8 @@ export const EditProduct = ({ produit }) => {
                           placeholder="rating"
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
-                        />
+                        /> */}
+                        <StarRating  rating={rating} setRating={setRating}  />
                       </FormControl>
 
                       <FormControl>
@@ -269,7 +324,6 @@ export const EditProduct = ({ produit }) => {
                           onChange={(e) => setQuantity(e.target.value)}
                         />
                       </FormControl>
-
                       <div className="btnAddProduct">
                         {/* <Button
                           type="submit"
@@ -289,17 +343,6 @@ export const EditProduct = ({ produit }) => {
                         >
                           Edit
                         </Button>
-
-                        {/* <Link to="/listAdmin">
-                          <Button
-                            colorScheme="purple"
-                            // width="full"
-                            width="60%"
-                            className="btnsubmit1"
-                          >
-                            close
-                          </Button>
-                        </Link> */}
                       </div>
                     </VStack>
                   </form>
@@ -308,10 +351,6 @@ export const EditProduct = ({ produit }) => {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            {/* <Button auto  type="submit" onClick={() => setVisible(false)}  >
-              Agree
-            </Button> */}
-
             <Button auto flat color="error" onClick={() => setVisible(false)}>
               Close
             </Button>
