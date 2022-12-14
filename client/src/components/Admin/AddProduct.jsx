@@ -41,7 +41,7 @@ export const AddProduct = () => {
   const [rating, setRating] = useState("");
   const [sold, setSold] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState("1");
   const [prixf, setPrixf] = useState(0);
   // const [total, setTotal] = useState();
 
@@ -201,9 +201,10 @@ export const AddProduct = () => {
                           variant="filled"
                           // placeholder="***"
                           isDisabled
-                          prixf={price - (price * sold) / 100}
+                          // prixf={price - (price * sold) / 100}
                           // value={ price-(price*sold)/100 }
-                          value={prixf}
+                          // value={prixf}
+                          value= {price -(price*sold)/100}
 
                           // onChange={(e) => setTotal(e.target.value)}
                         />
@@ -216,7 +217,7 @@ export const AddProduct = () => {
                           <Radio
                             value="1"
                             name="femme"
-                            defaultChecked
+                            // isChecked={true}
                             onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Femme

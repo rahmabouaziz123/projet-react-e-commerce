@@ -41,9 +41,9 @@ export const EditProduct = ({ produit }) => {
   const [rating, setRating] = useState(produit.rating);
   const [quantity, setQuantity] = useState(produit.quantity);
   const [sold, setSold] = useState(produit.sold);
-  const [value, setValue] = useState("1");
-  const [value2, setValue2] = useState("2");
-  const [value3, setValue3] = useState("3");
+  // const [value, setValue] = useState("");
+  // const [value2, setValue2] = useState("2");
+  // const [value3, setValue3] = useState("3");
   const [prixf, setPrixf] = useState(produit.price-(produit.price*produit.sold)/100)
 
 
@@ -98,8 +98,11 @@ export const EditProduct = ({ produit }) => {
       rating,
       quantity,
       sold,
+      
     };
     dispatch(editeProduct(editProduct)) && dispatch(getAllProducts());
+
+ 
     // setNameProd("");
     // setPrice("");
     // setCategory("");
@@ -117,7 +120,12 @@ export const EditProduct = ({ produit }) => {
     rating,
     quantity,
     sold,
+    prixf,
+    
   ]);
+
+   
+
   /////////////////////////////////////////
   return (
     <div>
@@ -154,6 +162,7 @@ export const EditProduct = ({ produit }) => {
                           variant="filled"
                           placeholder="nameProd"
                           value={nameProd}
+                          
                           onChange={(e) => setNameProd(e.target.value)}
                         />
                       </FormControl>
@@ -193,10 +202,12 @@ export const EditProduct = ({ produit }) => {
                           variant="filled"
                           // placeholder="***"
                           isDisabled
-                          // prixf= { price-(price*sold)/100}
-                          // value={ price-(price*sold)/100 }
-                          value={prixf}
-                          // onChange={() => setPrixf(produit.price-(produit.price*produit.sold)/100)}
+                         
+                          // value={prixf}
+                          //////tres bien 
+                          // value= {(produit.price-(produit.price*produit.sold)/100)}
+                          value= {price -(price*sold)/100}
+                         
                            
 
                   
@@ -234,36 +245,37 @@ export const EditProduct = ({ produit }) => {
                       {/* <RadioGroup onChange={setValue} value={value} > */}
                       {/* onChange={setValue1} value1={value1} */}
 
-                          
-
-                      <RadioGroup onChange={setValue} value={value}>
+                      {/* onChange={setCategory()} */}
+                      {/* value={category} */}
+                      <RadioGroup >
                         <Stack direction="row">
                           <Radio
-                            value="1"
-                            name="femme"
-                            checked={value == "1" ? true : false}
+                          name="femme"
+                            // value="1"
+                           
+                            // checked={category =="femme"? true : false }
+                            // defaultChecked ={category=="femme" ? true : false}
+                            isChecked ={category=="femme" ? true : false}
                             onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Femme
                           </Radio>
 
                           <Radio
-                            value="2"
-                            name="homme"
+                            // value={produit.category}
+                             name="homme"
                             // checked={value == "2" ? true : false}
-                           
-
-                           
-                  
+                            // checked= {{category}=="homme"? true : false }
+                            isChecked ={category=="homme" ? true : false}
                             onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Homme
                           </Radio>
                           <Radio
-                            name="enfant"
-                            value="3"
-                            checked={value== "3" ? true : false}
-                            
+                               name="enfant"
+                            // value="3"
+                            // checked={value== "3" ? true : false}
+                            isChecked ={category=="enfant" ? true : false}
                             onChange={(e) => setCategory(e.currentTarget.name)}
                           >
                             Enfant

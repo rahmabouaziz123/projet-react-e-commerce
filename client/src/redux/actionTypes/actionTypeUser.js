@@ -16,7 +16,8 @@ export const GET_PROFILE_SUCCESS="GET_PROFILE_SUCCESS";
 ////////logout
 export const USER_LOGOUT = "USER_LOGOUT";
 
-
+///////////////////
+export const GET_ALL_USER = "GET_ALL_USER";
 
 
 

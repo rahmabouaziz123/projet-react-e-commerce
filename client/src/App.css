@@ -158,3 +158,20 @@
 .loginMongo{
   width: 60px;
 }
+
+.pointer1{
+  cursor: pointer;
+}
+
+.listadmin1{
+  width: 120px;
+}
+
+.listusertable{
+ display: flex;
+ justify-content: center;
+
+}
+.tabuser{
+  width: 1000px!important;
+}

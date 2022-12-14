@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+// import { Link } from "react-router-dom";
 import { Navbar, Dropdown, Button, Link, Text } from "@nextui-org/react";
 import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
@@ -7,10 +8,11 @@ import { icons } from "./Icons.js";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProfile, logout } from "../../redux/actions/actionUser.js";
 import { Profile } from "../Profile.jsx";
-// import { Link } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { LogoImage } from "./LogoImage.jsx";
+
 
 // import "./ListAdmin.css";
 // import "../Admin/ListAdmin.css"
@@ -30,18 +32,20 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       <Layout>
-        {/* 555  variant="sticky" */}
         <Navbar isBordered className="nav5">
-          <Navbar.Brand>
-            {/* <AcmeLogo /> */}
+          {/* <Navbar.Brand className="pointer1">
             <img className="loginMongo" src="../../img/loginMongo.png" alt="" />
-            
+
             <Text b color="inherit" hideIn="xs">
               MANGO
             </Text>
-          </Navbar.Brand>
+          </Navbar.Brand> */}
+          <LogoImage/>
+
+          {/* </Link> */}
+
           <Navbar.Content
             enableCursorHighlight
             activeColor="secondary"
@@ -49,7 +53,7 @@ export const NavBar = () => {
             variant="underline"
           >
             <Dropdown isBordered>
-              <Navbar.Item>
+              {/* <Navbar.Item>
                 <Dropdown.Button
                   auto
                   light
@@ -61,9 +65,10 @@ export const NavBar = () => {
                   iconRight={icons.chevron}
                   ripple={false}
                 >
-                  {/* Features */} Products
+                  Products
                 </Dropdown.Button>
-              </Navbar.Item>
+              </Navbar.Item> */}
+
               <Dropdown.Menu
                 aria-label="ACME features"
                 css={{
@@ -84,63 +89,66 @@ export const NavBar = () => {
                   },
                 }}
               >
-                <Dropdown.Item
+             
+                {/* <Dropdown.Item
                   key="autoscaling"
                   showFullDescription
-                  description="ACME scales apps to meet user demand, automagically, based on load."
+                  description="List Admin *********."
                   icon={icons.scale}
                 >
-                  {/* Autoscaling */}
-                  women
-                </Dropdown.Item>
-                <Dropdown.Item
+             
+                List Admin
+                </Dropdown.Item> */}
+
+                {/* <LogoListAdmin/> */}
+             
+
+
+                {/* <Dropdown.Item
                   key="usage_metrics"
                   showFullDescription
                   description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
                   icon={icons.activity}
                 >
-                  {/* Usage Metrics */}
+            
                   Men
-                </Dropdown.Item>
-                <Dropdown.Item
+                </Dropdown.Item> */}
+                {/* <Dropdown.Item
                   key="production_ready"
                   showFullDescription
                   description="ACME runs on ACME, join us and others serving requests at web scale."
                   icon={icons.flash}
                 >
-                  {/* Production Ready */}
+                 
                   Enfant
-                </Dropdown.Item>
-                <Dropdown.Item
+                </Dropdown.Item> */}
+                {/* <Dropdown.Item
                   key="99_uptime"
                   showFullDescription
                   description="Applications stay on the grid with high availability and high uptime guarantees."
                   icon={icons.server}
                 >
                   +99% Uptime
-                </Dropdown.Item>
-                <Dropdown.Item
+                </Dropdown.Item> */}
+                {/* <Dropdown.Item
                   key="supreme_support"
                   showFullDescription
                   description="Overcome any challenge with a supporting team ready to respond."
                   icon={icons.user}
                 >
                   +Supreme Support
-                </Dropdown.Item>
+                </Dropdown.Item> */}
               </Dropdown.Menu>
             </Dropdown>
-           
-           
-           
-            <Navbar.Link  isActive href="/femmes" >
-                Femmes
-            
+             
+            {user && user.userRole == "admin" ? (
+            <Navbar.Link  href="/listAdmin" className="listadmin1">
+             List Admin
             </Navbar.Link>
-           
-            
-        
-          
-           
+               ):null}
+            <Navbar.Link isActive href="/femmes">
+              Femmes
+            </Navbar.Link>
 
             <Navbar.Link href="/hommes">Hommes</Navbar.Link>
             <Navbar.Link href="/kids">Enfants</Navbar.Link>
@@ -165,8 +173,7 @@ export const NavBar = () => {
                   iconRight={icons.chevron}
                   ripple={false}
                 >
-                  
-                   <img className="imglogOut" src="images/logoout5.png" alt="" />
+                  <img className="imglogOut" src="images/logoout5.png" alt="" />
                 </Dropdown.Button>
               </Navbar.Item>
               <Dropdown.Menu
@@ -193,7 +200,6 @@ export const NavBar = () => {
                   key="autoscaling"
                   showFullDescription
                   icon={icons.scale}
-                 
                 >
                   {/* <button onClick={() => dispatch(logout())}> Logout </button> */}
                   <Navbar.Link href="/" onClick={() => dispatch(logout())}>
@@ -220,7 +226,7 @@ export const NavBar = () => {
                 <div>
                   <div className="shopping">
                     {/* <AiOutlineShoppingCart /> */}
-                    <img className="logo55" src= "../../img/chario.PNG"alt="" />
+                    <img className="logo55" src="../../img/chario.PNG" alt="" />
                   </div>
                   <div className="count">
                     {cartItems &&

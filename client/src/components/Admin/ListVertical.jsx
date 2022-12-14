@@ -37,19 +37,24 @@ export const ListVertical = () => {
           )}
         </div>
 
-        <nav>
+        <nav  onClick={activateNav} >
           <ul className={active ? "ul-item" : "ul-item oicon"}>
             {/* <ul className={active ? 'ul-item' : 'ul-item'}> */}
             {/* <ul className={active ? 'ul-item oicon': 'ul-item'}> */}
 
             <li>
               <IoMdHome className="icon" />
-              <Link to="/home">Home</Link>
+              <Link to="/listProduct">List Product</Link>
             </li>
 
             <li>
               <IoMdClipboard className="icon" />
               <Link to="/ListAdmin">List Admin</Link>
+            </li>
+              
+            <li>
+              <IoMdClipboard className="icon" />
+              <Link to="/listuser">List Users</Link>
             </li>
 
             <li>
@@ -82,7 +87,7 @@ export const ListVertical = () => {
 
             <li>
               <IoMdCall className="icon" />
-              <Link to="/">Contact</Link>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </nav>

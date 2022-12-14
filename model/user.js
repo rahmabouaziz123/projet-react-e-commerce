@@ -6,6 +6,7 @@ const userSchema=new Schema({
     email:String,
     password:String,
     adresse:String,
+    
     userRole: {
         type: String,
         roles: ["user", "admin"],

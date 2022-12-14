@@ -1,9 +1,10 @@
 
 
-import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
+import { GET_ALL_USER, GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
 
 
 const init = {
+   usersall:null,
     user: null,
     error: null,
     loading: false,
@@ -33,6 +34,8 @@ const init = {
           loading: false,
           error: payload,
         };
+
+       
       case SIGN_UP_SUCCESS:
         return {
           ...state,
@@ -40,7 +43,8 @@ const init = {
           user: payload,
           error: null,
         };
-
+          
+       
         case LOGIN_SUCCESS:
           return {
             ...state,
@@ -57,6 +61,11 @@ const init = {
             }
             case USER_LOGOUT:
               return {};
+
+
+              /////get all users 
+              case GET_ALL_USER:
+                return { ...state,loading:false,error:null,usersall:payload }
   
       default:
         return state;

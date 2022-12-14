@@ -37,6 +37,9 @@ import { ListFemme } from "./components/MenuFemme/ListFemme";
 import { Contact } from "./components/contact/Contact";
 
 import { FormspreeProvider } from "@formspree/react";
+import { LogoImage } from "./components/Nav/LogoImage";
+import { ListUser } from "./components/Admin/ListUser";
+
 
 
 function App() {
@@ -88,6 +91,11 @@ function App() {
               <Route path="/rating" element={<StarRating />} />
 
               <Route path="/footer" element={<Footer />} />
+
+               <Route path="/logoimage" element={<LogoImage />} />
+
+               <Route path="/listuser" element={<ListUser />} />
+             
 
               <Route
                 path="/kids"

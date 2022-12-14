@@ -86,3 +86,19 @@ exports.LogIn=async(req,res)=>{
 exports.auth=(req,res)=>{
     res.send(req.user)
 }
+
+
+
+//////
+
+/////get all user
+exports.getAllUser = async (req, res) => {
+    try {
+      const allUsers = await User.find();
+      allUsers
+        ? res.status(201).json(allUsers)
+        : res.status(401).json({ msg: "getAll error" });
+    } catch (error) {
+      res.status(501).json({ msg: error.message });
+    }
+  };
