@@ -22,4 +22,5 @@
 .facture{
     display: flex;
     justify-content: end;
+    margin-right:180px;
 }

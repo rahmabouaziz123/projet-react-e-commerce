@@ -22,7 +22,7 @@ import { ListVertical } from "./ListVertical";
 export const ListAdmin = () => {
   //store
   const { products } = useSelector((state) => state.productReducer);
-    console.log(products);
+    // console.log(products);
 
   //dispatch getallproducts
   const dispatch = useDispatch();

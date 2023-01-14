@@ -39,8 +39,8 @@ import { Contact } from "./components/contact/Contact";
 import { FormspreeProvider } from "@formspree/react";
 import { LogoImage } from "./components/Nav/LogoImage";
 import { ListUser } from "./components/Admin/ListUser";
-
-
+import { PageBloque } from "./components/PageBloque";
+import { NavBloquant } from "./components/NavBloquant";
 
 function App() {
   const { user } = useSelector((state) => state.userReducer);
@@ -50,8 +50,9 @@ function App() {
       <NextUIProvider>
         <ChakraProvider>
           <Router>
-           
+            {/* {user&&user.blocking ==true ?   <PageBloque />:  <NavBloquant/>} */}
             <NavBar />
+
             {/* {user && user.userRole === "admin" ? <AddProduct /> : null } */}
             <Routes>
               <Route path="/privateRoute" element={<PrivateRoute />} />
@@ -92,10 +93,11 @@ function App() {
 
               <Route path="/footer" element={<Footer />} />
 
-               <Route path="/logoimage" element={<LogoImage />} />
+              <Route path="/logoimage" element={<LogoImage />} />
 
-               <Route path="/listuser" element={<ListUser />} />
-             
+              <Route path="/listuser" element={<ListUser />} />
+
+              <Route path="/pagebloque" element={<PageBloque />} />
 
               <Route
                 path="/kids"

@@ -60,23 +60,19 @@ exports.signUp = async (req, res) => {
 
 exports.LogIn = async (req, res) => {
   const { email, password } = req.body;
- 
   try {
     //verification email
     const user = await User.findOne({ email });
-    if (!user) return res.status(404).json({ msg: "invalide Email" });
+    if (!user) return res.status(404).json({ msg: "coordonnes ghaltin" });
     // verification password
     const isMatch = await bc.compare(password, user.password);
-    if (!isMatch) return res.status(404).json({ msg: "invalide password" });
-     
- 
-
+    if (!isMatch) return res.status(404).json({ msg: "coordonnes ghaltin" });
     const payload = {
       id: user._id,
       name: user.fullName,
       email: user.email,
       adresse: user.adresse,
-      blocking:user.blocking
+      // blocking:user.blocking
     };
     const token = jwt.sign(payload, secret);
     res.status(200).send({
@@ -89,7 +85,7 @@ exports.LogIn = async (req, res) => {
         adresse: user.adresse,
         userRole: user.userRole,
         telephone: user.telephone,
-        blocking:user.blocking
+        // blocking:user.blocking
       },
     });
   } catch (error) {

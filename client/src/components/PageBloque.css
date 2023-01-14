@@ -1,0 +1,23 @@
+
+
+/* .bageBloque{
+    margin-top: -80px;
+     z-index: 2;
+    background: blue;
+    height: 100px;
+    
+} */
+
+.bageBloque{
+  
+     z-index: 2;
+    background:  brown;
+    font-size: 30px;
+    text-align: center;
+    color: azure;
+  margin-top: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* margin-top: -80px; */
+ 
+    
+}

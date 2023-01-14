@@ -194,9 +194,9 @@ export const Facture = () => {
             IBAN FR76 1470 7034 0031 4211 7882 825 - SWIFT CCBPFRPPMTZ
           </p>
           <p> <Grid>
-        <Button flat color="warning" auto    type="submit"   >
+        {/* <Button flat color="warning" auto    type="submit"   >
           Confirm
-        </Button>
+        </Button> */}
       </Grid> </p>
         </div>
       </div>

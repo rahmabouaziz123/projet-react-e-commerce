@@ -11,12 +11,14 @@ const persistConfig = {
   key: "authType",
   storage: storage,
 };
+
 const pReducer = persistReducer(persistConfig, rootReducer);
 
 const devtools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(pReducer, compose(applyMiddleware(thunk), devtools));
+
+const store = createStore(pReducer, compose(applyMiddleware(thunk),devtools));
 
 const persistor = persistStore(store);
 

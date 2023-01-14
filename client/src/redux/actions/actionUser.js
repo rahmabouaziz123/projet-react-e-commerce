@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import { GET_ALL_USER, GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
+import { BLOKINGUSER, GET_ALL_USER, GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
 
 
 
@@ -92,5 +92,22 @@ export const getAllusers = () => async(dispatch) => {
     );
   } catch (error) {
     alert("get all users error")
+  }
+};
+
+
+/////////////// edit user
+
+export const editeUser = (user) => async(dispatch) => {
+  try {
+      const res = await axios.put(`/user/updateUser/${user._id}`, user);
+      dispatch(
+          {
+              type : BLOKINGUSER,
+              payload : res.data
+          }
+      )
+  } catch (error) {
+      alert("update User error");
   }
 };

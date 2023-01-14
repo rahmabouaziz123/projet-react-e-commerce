@@ -3,9 +3,14 @@ const Schema=mongoose.Schema;
 
 const userSchema=new Schema({
     fullName:String,
+   
     email:String,
     password:String,
     adresse:String,
+    blocking:{
+      type:Boolean,
+      default:false
+  },
     
     userRole: {
         type: String,

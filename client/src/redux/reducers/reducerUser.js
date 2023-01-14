@@ -1,6 +1,6 @@
 
 
-import { GET_ALL_USER, GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
+import { BLOKINGUSER, GET_ALL_USER, GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOGIN, LOGIN_FAIL, LOGIN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypeUser";
 
 
 const init = {
@@ -40,8 +40,10 @@ const init = {
         return {
           ...state,
           loading: false,
-          user: payload,
-          error: null,
+          user: payload.user,
+          token:payload.token,
+          isAuth:true,
+           error: null,
         };
           
        
@@ -66,6 +68,11 @@ const init = {
               /////get all users 
               case GET_ALL_USER:
                 return { ...state,loading:false,error:null,usersall:payload }
+                /////edit user
+                case BLOKINGUSER:
+                  return {
+                      ...state, usersall:state.usersall.map( el => el._id === payload._id ?payload :el)
+                  }
   
       default:
         return state;

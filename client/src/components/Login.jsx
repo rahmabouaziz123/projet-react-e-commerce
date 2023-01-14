@@ -17,14 +17,16 @@ import {
 import { userLogin } from "../redux/actions/actionUser";
 
 export const Login = () => {
-  const { user, loading, isAuth } = useSelector((state) => state.userReducer);
-  console.log(loading);
-  console.log(user);
+  const { user, loading } = useSelector((state) => state.userReducer);
+  // const { user, loading, isAuth } = useSelector((state) => state.userReducer);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
+
+  console.log(user);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(userLogin({ email, password }));
@@ -37,30 +39,9 @@ export const Login = () => {
       ) : localStorage.getItem("token") ? (
         <Navigate to="/privateRoute" />
       ) : (
-        // <Navigate to="/" />
+        
 
         <div>
-          {/* <Form >
-       <div className='loginform'>
-       <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" value={email}
-            onChange={(e) => setEmail(e.target.value)} />
-          
-        </Form.Group>
-      
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" value={password}
-            onChange={(e) => setPassword(e.target.value)} />
-        </Form.Group>
-      
-        <Button variant="primary" onClick={handleSubmit}>
-          Submit
-        </Button>
-       </div>
-      </Form> */}
-
           <div>
             <Flex bg="gray.100" align="center" justify="center" h="88vh">
               <Box bg="white" p={10} w="100vh">

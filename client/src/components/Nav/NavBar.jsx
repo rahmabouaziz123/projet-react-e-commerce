@@ -19,7 +19,7 @@ import { LogoImage } from "./LogoImage.jsx";
 
 export const NavBar = () => {
   const { user, loading } = useSelector((state) => state.userReducer);
-  // console.log(user);
+  console.log(user);
 
   ////////////////////cart **////////////
   const { cartItems } = useSelector((state) => state.cartReducer);
@@ -221,14 +221,14 @@ export const NavBar = () => {
               </Button>
             </Navbar.Item>
 
-            {user && user.userRole !== "admin" ? (
+            {user && user.userRole !== "admin"? (
               <Navbar.Link href="/cart">
                 <div>
                   <div className="shopping">
                     {/* <AiOutlineShoppingCart /> */}
                     <img className="logo55" src="../../img/chario.PNG" alt="" />
                   </div>
-                  <div className="count">
+                  <div className="count">0
                     {cartItems &&
                       cartItems.reduce(
                         (accumulator, currentValue) =>

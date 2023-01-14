@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { userSignUp } from "../redux/action";
+import { Navigate } from "react-router-dom";
 
 import {
   Box,
@@ -18,9 +19,10 @@ import { userSignUp } from "../redux/actions/actionUser";
 // import { Form, Button } from "react-bootstrap";
 
 export const SignUp = () => {
-  const { user, loading } = useSelector((state) => state.userReducer);
+  const { user, loading, token } = useSelector((state) => state.userReducer);
   console.log(loading);
   console.log(user);
+  // console.log(token);
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,82 +37,20 @@ export const SignUp = () => {
     dispatch(userSignUp(newUser));
   };
 
+  if(token )
+  return ( <Navigate to="/listProduct" />)
+
   return (
     <div>
       <div>
         {loading ? (
           <h1>Loading ...</h1>
-        ) : (
-          // <Form>
-          //   <div className="loginform">
-          //     <Form.Group className="mb-3" controlId="formBasicEmail">
-          //       <Form.Label className="label">fullName </Form.Label>
-          //       <Form.Control
-          //         type="text"
-          //         placeholder="fullName"
-          //         value={fullName}
-          //         onChange={(e) => setFullName(e.target.value)}
-          //       />
-          //     </Form.Group>
-
-          //     <Form.Group className="mb-3" controlId="formBasicPassword">
-          //       <Form.Label className="label">Email</Form.Label>
-          //       <Form.Control
-          //         type="text"
-          //         placeholder="Email"
-          //         value={email}
-          //         onChange={(e) => setEmail(e.target.value)}
-          //       />
-          //     </Form.Group>
-
-          //     <Form.Group className="mb-3" controlId="formBasicPassword">
-          //       <Form.Label className="label">Password</Form.Label>
-          //       <Form.Control
-          //         type="text"
-          //         placeholder="password"
-          //         value={password}
-          //         onChange={(e) => setPassword(e.target.value)}
-          //       />
-          //     </Form.Group>
-
-          //     <Form.Group className="mb-3" controlId="formBasicPassword">
-          //       <Form.Label className="label">adresse</Form.Label>
-          //       <Form.Control
-          //         type="text"
-          //         placeholder="adresse"
-          //         value={adresse}
-          //         onChange={(e) => setAdresse(e.target.value)}
-          //       />
-          //     </Form.Group>
-
-          //     <Form.Group className="mb-3" controlId="formBasicPassword">
-          //       <Form.Label className="label">telephone</Form.Label>
-          //       <Form.Control
-          //         type="text"
-          //         placeholder="telephone"
-          //         value={telephone}
-          //         onChange={(e) => setTelephone(e.target.value)}
-          //       />
-          //     </Form.Group>
-
-          //     <div className="btndiv1">
-          //       <Button
-          //         type="submit"
-          //         onClick={handleSubmit}
-          //         variant="primary"
-          //         className="btnsing"
-          //       >
-          //         Sing Up
-          //       </Button>
-          //       <Link to="/login"> <Button variant="success">Login</Button></Link>
-
-          //     </div>
-          //   </div>
-          // </Form>
-
+        ) :
+        // localStorage.getItem("token") ?  <Navigate to="/listProduct" />
+         (
           <div>
             <Flex bg="gray.100" align="center" justify="center" h="100vh">
-              <Box bg="white" p={14} w="80vh" >
+              <Box bg="white" p={14} w="80vh">
                 <form>
                   <VStack spacing={4} align="flex-start">
                     <FormControl>
@@ -185,34 +125,44 @@ export const SignUp = () => {
                     >
                       Remember me?
                     </Checkbox>
-                  
-                   <div className="x">
-                   <Button
-                      type="submit"
-                      onClick={handleSubmit}
-                      colorScheme="purple"
-                      // width="full"
-                      width="60%"
-                      className="btnsubmit1"
-                    >
-                      Sing Up
-                    </Button>
 
-                    <Link to="/login">
-                     <Button  type="submit" colorScheme="purple"  width="90%" className="btnloginx">
-                        Login 
+                    <div className="x">
+
+               
+                      <Button
+                        type="submit"
+                        onClick={handleSubmit}
+                        colorScheme="purple"
+                        // width="full"
+                        width="60%"
+                        className="btnsubmit1"
+                      >
+                        Sing Up
                       </Button>
-                    </Link>
-                   </div>
+                   
+
+                      <div>
+                        <Link to="/login">
+                          <Button
+                            type="submit"
+                            colorScheme="purple"
+                            width="90%"
+                            className="btnloginx"
+                          >
+                            Login
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
                   </VStack>
-                 
-                  
                 </form>
               </Box>
             </Flex>
           </div>
-        )}
-        {/* <Link to="/login"> <Button variant="success">Login</Button></Link> */}
+        )
+        
+        }
+       
       </div>
     </div>
   );

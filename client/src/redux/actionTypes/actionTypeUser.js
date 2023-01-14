@@ -19,8 +19,8 @@ export const USER_LOGOUT = "USER_LOGOUT";
 ///////////////////
 export const GET_ALL_USER = "GET_ALL_USER";
 
-
-
+///////////////
+export const BLOKINGUSER = "BLOKINGUSER";
 
 
 

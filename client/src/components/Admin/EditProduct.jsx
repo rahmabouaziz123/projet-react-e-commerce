@@ -103,13 +103,7 @@ export const EditProduct = ({ produit }) => {
     dispatch(editeProduct(editProduct)) && dispatch(getAllProducts());
 
  
-    // setNameProd("");
-    // setPrice("");
-    // setCategory("");
-    // setImage("");
-    // setDescription("");
-    // setRating("");
-    // setQuantity("");
+    
   };
   useEffect(() => {}, [
     nameProd,

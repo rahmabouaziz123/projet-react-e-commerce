@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllusers } from "../../redux/actions/actionUser";
+import {  getAllusers } from "../../redux/actions/actionUser";
 import { Table } from "@nextui-org/react";
-import { Button, Grid } from "@nextui-org/react";
-import { BiBlock } from "react-icons/bi";
+import {  Grid } from "@nextui-org/react";
+
+import { EditUser } from "./EditUser";
 
 export const ListUser = () => {
   //store
   const { usersall } = useSelector((state) => state.userReducer);
-  //  console.log(usersall);
+
+  // console.log(usersall)
+
+
+
+  
   //dispatch getallproducts
   const dispatch = useDispatch();
 
@@ -16,6 +22,8 @@ export const ListUser = () => {
   useEffect(() => {
     dispatch(getAllusers());
   }, []);
+
+ 
 
   return (
     <div className="listusertable">
@@ -34,6 +42,7 @@ export const ListUser = () => {
           <Table.Column>email</Table.Column>
           <Table.Column>adresse</Table.Column>
           <Table.Column>userRole</Table.Column>
+          <Table.Column>bloking</Table.Column>
           <Table.Column>Action</Table.Column>
         </Table.Header>
         <Table.Body>
@@ -44,16 +53,23 @@ export const ListUser = () => {
                 <Table.Cell>{el.email}</Table.Cell>
                 <Table.Cell>{el.adresse}</Table.Cell>
                 <Table.Cell>{el.userRole}</Table.Cell>
+
+                <Table.Cell>  
+                  {String(el.blocking)}
+                 
+                  
+                  </Table.Cell>
                 <Table.Cell>
                   <span>
-                    <Grid.Container gap={2}>
+                   
                       <Grid>
-                        <Button shadow color="secondary" auto>
-                         <BiBlock/>
-                        </Button>
+                       
+                        < EditUser user={el}/>
+
                       </Grid>
                      
-                    </Grid.Container>
+                    
+                  
                   </span>
                 </Table.Cell>
               </Table.Row>

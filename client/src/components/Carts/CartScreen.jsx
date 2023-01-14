@@ -110,7 +110,7 @@ const CartScreen = () => {
       
       <div>
       <Link to={"/facture"}>
-      <Grid className="facture">
+      <Grid className="facture" >
         <Button color="primary" auto ghost>
         Facture
         </Button>
